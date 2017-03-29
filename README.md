@@ -111,6 +111,8 @@ Because every project has to have TODO list that will never be done! Here's
 mine 😄:
 
  - [x] Do nothing, sleep and go to work.
+ - [ ] Add tests, TravisCI and Coveralls.io integration just because it's
+   the cool new thing to do.
  - [ ] Refactor into proper git commands instead of hackish aliases.
  - [ ] Add a setup script for Linux, Mac OSX, Windows, Android and every
    other OS in the galaxy.
