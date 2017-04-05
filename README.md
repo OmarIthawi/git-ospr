@@ -58,6 +58,8 @@ Those are the main commands I use during the open-source pull requests:
    pull request) branch with proper base and pushes it to the correct remote.
  - `$ git ospr-rebase`: Rebases the branch with the upstream-master. Accepts extra rebase arguments like `--interactive`
    and others.
+ - `$ git ospr-fetch-rebase`: Updates `upstream-master` and continue with `$ git ospr-rebase`. Accepts extra rebase arguments like `--interactive`
+   and others.
  - `$ git ospr-diff`: Diff with upstream/master.
 
 ## Extra Commands
