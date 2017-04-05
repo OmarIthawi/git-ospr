@@ -16,6 +16,8 @@ things. Let's agree on them first:
    https://github.com/edx/edx-platform.git
  - and another one called `ospr` for example:
    https://github.com/OmarIthawi/edx-platform.git
+ - A local branch named `upstream-master` that is linked to the remote
+   branch `upstream/master`. Therefore your `ospr/master` won't be used.
 
 If you don't like the naming and want some change, please open an issue.
 Or just fork the repo and change it.
