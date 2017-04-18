@@ -7,7 +7,8 @@
 
   pull-other = "!f() { git ensure-arg $1 && OLD_BR=`git branch-name` && git ensure-clean && git checkout $1 && git pull && git checkout $OLD_BR; }; f"
   rebase-master = "!f() { git pull-other master && git rebase $@ master; }; f"
-  diff-remote = "!f() { git fetch --all && git diff `git branch-remote` $@;  }; f"
+  diff-fetch-remote = "!f() { git fetch --all && git diff `git branch-remote` $@;  }; f"
+  diff-remote = "!f() { git diff `git branch-remote` $@;  }; f"
 
 
   ospr-check-remote = "!f() { git ensure-arg $1 && if ! git config remote.$1.url > /dev/null; then echo \"Please make sure you have a git remote repo added and it is named '$1'\"; exit 1; fi };  f"
