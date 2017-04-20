@@ -98,7 +98,7 @@ for sanity checks and other things.
     OSPR branch with correct setup.
 
 ## Why
-I work at @Edraak and part of my job is to make opensource pull request
+I work at [Edraak](https://github.com/Edraak) and part of my job is to make opensource pull request
 contributions to the [edx-platform](https://github.com/edx/edx-platform) repo.
 
 As a non-member contributor I have to work with three different repositories:
@@ -131,4 +131,4 @@ mine 😄:
 
 ## Author
 
- - Omar Al-Ithawi <i@omardo.com>
+ - Omar Al-Ithawi <i@omardo.com> (developed this while working at [Edraak](https://github.com/Edraak)).
