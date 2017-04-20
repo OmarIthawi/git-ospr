@@ -86,6 +86,9 @@ for sanity checks and other things.
   - `$ git diff-remote`: Diff with the remote branch, useful before
     `push --force`. Accepts extra diff arguments.
 
+  - `$ git diff-fetch-remote`: Similar to `$ git diff-remote`,
+     but fetches remote first. Accepts extra diff arguments.
+
   - `$ git ospr-check-remote REMOTE_NAME`: Checks for the existence specific
     remote. Useful to test the repo before running `ospr-*` commands.
 
