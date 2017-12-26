@@ -129,6 +129,9 @@ mine 😄:
  - [ ] Create a better version management tool than git.
 
 
-## Author
+# Author
+Omar Al-Ithawi (<i@omardo.com>)
 
- - Omar Al-Ithawi <i@omardo.com> (developed this while working at [Edraak](https://github.com/Edraak)).
+## Credit
+ - The original repo was made while working at [**@Edraak**](https://github.com/Edraak).
+ - It has been continued while working at  [**@appsembler**](https://github.com/appsembler).
