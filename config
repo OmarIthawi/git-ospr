@@ -2,8 +2,8 @@
   branch-name = rev-parse --abbrev-ref HEAD
   branch-remote = rev-parse --abbrev-ref --symbolic-full-name @{u}
 
-  ensure-arg = "!f() { if [[ -z \"$1\" ]]; then echo \"Missing argument no. 1\"; exit 1; fi }; f"
-  ensure-clean = "!f() { if [[ -n \"$(git status --short)\" ]]; then echo \"The repo has changes exiting with an error.\" && git status && exit 1; fi  }; f"
+  ensure-arg = "!f() { if [ -z \"$1\" ]; then echo \"Missing argument no. 1\"; exit 1; fi }; f"
+  ensure-clean = "!f() { if [ -n \"$(git status --short)\" ]; then echo \"The repo has changes exiting with an error.\" && git status && exit 1; fi  }; f"
 
   pull-other = "!f() { git ensure-arg $1 && OLD_BR=`git branch-name` && git ensure-clean && git checkout $1 && git pull && git checkout $OLD_BR; }; f"
   rebase-master = "!f() { git pull-other master && git rebase $@ master; }; f"
@@ -13,7 +13,7 @@
 
   ospr-check-remote = "!f() { git ensure-arg $1 && if ! git config remote.$1.url > /dev/null; then echo \"Please make sure you have a git remote repo added and it is named '$1'\"; exit 1; fi };  f"
   ospr-check = "!git ospr-check-remote upstream && git ospr-check-remote ospr"
-  ospr-check-ospr-branch = "!f() { git ospr-check && BR_NAME=`git branch-remote` && if [[ \"$BR_NAME\" != ospr/* ]]; then echo \"This branch is not an open source pull request branch.\"; exit 1; fi }; f"
+  ospr-check-ospr-branch = "!f() { BRANCH_PREFIX=\"$(git branch-remote | grep -o ^ospr/)\"; git ospr-check && if [ -z \"$BRANCH_PREFIX\" ]; then echo \"This branch is not an open source pull request branch.\"; exit 1; fi }; f"
 
   ospr-nbr = "!f() { git ospr-check && git ensure-arg $1 && git pull-other upstream-master && git checkout -b $1 upstream-master && git push -u ospr $1;  }; f"
   ospr-fetch-rebase = "!f() { git ospr-check-ospr-branch && git pull-other upstream-master && git rebase $@ upstream-master; }; f"
