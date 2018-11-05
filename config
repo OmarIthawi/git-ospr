@@ -19,3 +19,5 @@
   ospr-fetch-rebase = "!f() { git ospr-check-ospr-branch && git pull-other upstream-master && git rebase $@ upstream-master; }; f"
   ospr-rebase = "!f() { git ospr-check-ospr-branch && git rebase $@ upstream-master; }; f"
   ospr-diff = "!f() { git ospr-check-ospr-branch && git diff $(git merge-base `git branch-name` upstream/master) $@; }; f"
+
+  checkout-ospr-branch = "!f() { git ensure-arg $1 && git fetch upstream pull/$1/head:ospr-branch-$1 && git checkout ospr-branch-$1; }; f"
