@@ -12,10 +12,10 @@
 
 
   ospr-check-remote = "!f() { git ensure-arg $1 && if ! git config remote.$1.url > /dev/null; then echo \"Please make sure you have a git remote repo added and it is named '$1'\"; exit 1; fi };  f"
-  ospr-check = "!git ospr-check-remote upstream && git ospr-check-remote ospr"
-  ospr-check-ospr-branch = "!f() { BRANCH_PREFIX=\"$(git branch-remote | grep -o ^ospr/)\"; git ospr-check && if [ -z \"$BRANCH_PREFIX\" ]; then echo \"This branch is not an open source pull request branch.\"; exit 1; fi }; f"
+  ospr-check = "!git ospr-check-remote upstream && git ospr-check-remote origin"
+  ospr-check-ospr-branch = "!f() { BRANCH_PREFIX=\"$(git branch-remote | grep -o ^origin/)\"; git ospr-check && if [ -z \"$BRANCH_PREFIX\" ]; then echo \"This branch is not an open source pull request branch.\"; exit 1; fi }; f"
 
-  ospr-nbr = "!f() { git ospr-check && git ensure-arg $1 && git pull-other upstream-master && git checkout -b $1 upstream-master && git push -u ospr $1;  }; f"
+  ospr-nbr = "!f() { git ospr-check && git ensure-arg $1 && git pull-other upstream-master && git checkout -b $1 upstream-master && git push -u origin $1;  }; f"
   ospr-fetch-rebase = "!f() { git ospr-check-ospr-branch && git pull-other upstream-master && git rebase $@ upstream-master; }; f"
   ospr-rebase = "!f() { git ospr-check-ospr-branch && git rebase $@ upstream-master; }; f"
   ospr-diff = "!f() { git ospr-check-ospr-branch && git diff $(git merge-base `git branch-name` upstream/master) $@; }; f"
