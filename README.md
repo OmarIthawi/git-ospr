@@ -10,14 +10,12 @@ Seriously!
 Before your try to set this up, note that this repo is opinionated about a few
 things. Let's agree on them first:
 
- - the `ospr-*` commands don't care about the `origin` repo,
-   though it can play nicely with it.
  - You need one `upstream` repo for example:
    https://github.com/edx/edx-platform.git
- - and another one called `ospr` for example:
+ - and your `origin` for example:
    https://github.com/OmarIthawi/edx-platform.git
  - A local branch named `upstream-master` that is linked to the remote
-   branch `upstream/master`. Therefore your `ospr/master` won't be used.
+   branch `upstream/master`.
 
 If you don't like the naming and want some change, please open an issue.
 Or just fork the repo and change it.
@@ -47,7 +45,6 @@ Replace the `git@github.com:*` with your desired repos.
 
 ```
 $ git remote add upstream git@github.com:edx/edx-platform.git
-$ git remote add ospr git@github.com:OmarIthawi/edx-platform.git
 $ git fetch --all
 $ git checkout -b upstream-master upstream/master
 $ git ospr-check && echo "Everything is setup correctly"
@@ -97,18 +94,20 @@ for sanity checks and other things.
   - `$ git ospr-check-ospr-branch`: Verifies that the current branch is an
     OSPR branch with correct setup.
 
+  - `$ git checkout-ospr-branch PULL_REQUEST_ID`: Checks out an incoming OSPR command without
+    having to add the contributors remote. Borrowed from the [GitHub help docs](https://help.github.com/articles/checking-out-pull-requests-locally/).
+
 ## Why
-I work at [Edraak](https://github.com/Edraak) and part of my job is to make opensource pull request
-contributions to the [edx-platform](https://github.com/edx/edx-platform) repo.
+I'm an [Open edX](https://github.com/edx/edx-platform) developer and part of my job 
+is to make opensource pull request contributions to 
+the [edx-platform](https://github.com/edx/edx-platform) repo.
 
-As a non-member contributor I have to work with three different repositories:
+As a non-member contributor I have to work with two different repositories:
 
- - [Edraak's fork](https://github.com/Edraak/edx-platform) for @Edraak.
- - The [upstream repo](https://github.com/edx/edx-platform) at @edX.
- - The ["personal" repo](https://github.com/OmarIthawi/edx-platform)
-   for opening pull requests against upstream.
+ - [Company's fork](https://github.com/appsembler/edx-platform) of @appsembler.
+ - The [upstream repo](https://github.com/edx/edx-platform) of @edX.
 
-This involves a lot of juggling, which is not so much fun and waists a
+This involves a lot of juggling, which is not so much fun and wastes a
 lot of time in jumping from one git command to another.
 
 I made these commands to help me.
